@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P-X - Movie Selection</title>
+  
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+
+   
+    .movie-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-behavior: smooth;
+    }
+
+  
+    .movie-scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .movie-scroll-container::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 4px;
+    }
+    .movie-scroll-container::-webkit-scrollbar-thumb {
+      background: #ff4a57;
+      border-radius: 4px;
+    }
+
+  
+    .movie-card {
+      flex: 0 0 200px; 
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="btn btn-outline-light btn-sm">
+        ← Back to Home
+      </a>
+      <h3 class="m-0 fw-bold">Featured Classics</h3>
+    </div>
+    
+    <div>
+      <button class="btn btn-outline-light btn-sm me-1" onclick="scrollLeftMovies()">❮</button>
+      <button class="btn btn-outline-light btn-sm" onclick="scrollRightMovies()">❯</button>
+    </div>
+  </div>
+
+    
+    <div class="movie-scroll-container" id="movieScrollContainer">
+     
+  </div>
+
+  <script>
+   
+    const movies = [
+      {
+        title: "The Lord of the Rings: The Fellowship of the Ring",
+        year: "2001",
+        img: "posters/movie51.jpg"
+      },
+      {
+        title: "The Lord of the Rings: The Two Towers",
+        year: "2002",
+        img: "posters/movie52.jpg"
+      },
+      {
+        title: "The Lord of the Rings: The Return of the King",
+        year: "2003",
+        img: "posters/movie53.jpg"
+      },
+      {
+        title: "Back to the Future",
+        year: "1985",
+        img: "posters/movie54.webp"
+      },
+      {
+        title: "Back to the Future Part II",
+        year: "1989",
+        img: "posters/movie55.webp"
+      },
+      {
+        title: "Back to the Future Part III",
+        year: "1990",
+        img: "posters/movie56.webp"
+      },
+      {
+        title: "Dead Poets Society",
+        year: "1989",
+        img: "posters/movie57.webp"
+      }
+    ];
+
+    
+    const container = document.getElementById('movieScrollContainer');
+
+    movies.forEach(movie => {
+      container.innerHTML += `
+        <div class="card movie-card text-white shadow">
+          <img src="${movie.img}" class="card-img-top" alt="${movie.title}" onerror="this.src='https://via.placeholder.com/200x300?text=Poster'">
+          <div class="card-body p-2">
+            <h6 class="card-title text-truncate m-0" title="${movie.title}">${movie.title}</h6>
+            <small class="text-secondary">${movie.year}</small>
+          </div>
+        </div>
+      `;
+    });
+
+    
+    function scrollLeftMovies() {
+      container.scrollBy({ left: -400, behavior: 'smooth' });
+    }
+
+    function scrollRightMovies() {
+      container.scrollBy({ left: 400, behavior: 'smooth' });
+    }
+  </script>
+   <script src="app.js"></script>
+</body>
+</html>

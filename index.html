@@ -1,0 +1,367 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="P-X is an offline movie recommendation site with 50 carefully selected films." />
+
+    <title>Project X — Movie Recommendations</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+
+  <body>
+
+    <div class="grain" aria-hidden="true"></div>
+
+
+
+
+
+    <header>
+  <nav class="navbar navbar-expand-lg bg-light px-3">
+    <div class="container-fluid">
+      
+      
+      <a class="navbar-brand fw-bold" href="#">P-X</a>
+
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-3">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#catalog">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
+                <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+              </svg> Home
+            </a>
+          </li>
+
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#journal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+              </svg> Our point of view
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="editors-choice.html" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg> Editor's Choice
+            </a>
+          </li>
+        <li class="nav-item">
+  <button class="btn btn-outline-dark saved-link d-flex align-items-center gap-1" id="historyButton" type="button">
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+</svg>
+     
+    History
+  </button>
+</li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#about-us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+              </svg> About Us
+            </a>
+          </li>
+
+         
+          
+          <li class="nav-item">
+            <button class="btn btn-outline-dark saved-link d-flex align-items-center gap-1" id="savedButton" type="button">
+              <span class="bookmark-icon" aria-hidden="true"></span>
+              Saved <span class="badge bg-secondary ms-1" id="savedCount">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+      <section class="hero shell" aria-labelledby="heroTitle">
+
+        <div class="hero-copy-wrap">
+
+          <p class="eyebrow"><span class="eyebrow-rule"></span>A film companion, not a feed</p>
+
+          <h1 id="heroTitle">Find the one<br /><em>worth your night.</em></h1>
+
+          <p class="hero-description">
+
+            A small, opinionated Top of movies with something to say.
+
+            Pick by feeling, follow a hunch, or let the room choose.
+
+          </p>
+
+          <div class="hero-actions">
+
+            <button class="button button-primary" id="surpriseHero" type="button">
+
+              <span class="shuffle-icon" aria-hidden="true">↝</span>
+
+              Surprise me
+
+            </button>
+
+            <button class="button button-secondary" id="browseButton" type="button">
+
+              Browse the movies
+              <span aria-hidden="true">›</span>
+
+            </button>
+
+          </div>
+
+          <p class="hero-note">50 considered films · saved in your browser</p>
+
+        </div>
+
+
+
+
+
+        <article class="feature-card" id="featureCard">
+
+          <div class="feature-poster poster" id="featurePoster"></div>
+
+          <div class="feature-info">
+
+            <p class="feature-kicker">Tonight's considered choice</p>
+
+            <h2 id="featureTitle">Moonlight</h2>
+
+            <p class="feature-meta" id="featureMeta"></p>
+
+            <p class="feature-logline" id="featureLogline"></p>
+
+            <button class="feature-link" id="featureDetails" type="button">
+
+              Read the note <span aria-hidden="true">›</span>
+
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+
+
+
+      <section class="catalog-zone" id="catalog" aria-labelledby="catalogTitle">
+  <div class="catalog-inner shell">
+    
+    <div class="section-heading">
+      <p class="eyebrow"><span class="eyebrow-rule"></span>No algorithm</p>
+      
+     
+      <div class="title-search-wrapper">
+        <h2 id="catalogTitle">The peak <em>films.</em></h2>
+        
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="searchInput" type="search" placeholder="Search a title, director..." aria-label="Search a title, director...">
+        </label>
+      </div>
+    </div>
+
+   
+    <div class="toolbar">
+      <div class="filter-row" id="genreFilters" role="group" aria-label="Filter by genre">
+       
+      </div>
+    </div>
+
+    <p class="catalog-count" id="catalogCount">50 of 50 films showing</p>
+
+    <div class="catalog-grid" id="catalogGrid" aria-live="polite"></div>
+
+  </div>
+</section>
+
+
+
+
+
+      <section class="journal-section shell" id="journal" aria-labelledby="journalTitle">
+
+        <p class="eyebrow"><span class="eyebrow-rule"></span>A note from the editor</p>
+
+        <h2 id="journalTitle">Good films leave<br />the door <em>wiser.</em></h2>
+
+        <div class="journal-grid">
+
+          <blockquote>
+
+            “The best recommendation is not the one that fills an evening.
+
+            It is the one that gives the evening a new shape.”
+
+          </blockquote>
+
+          <div class="journal-aside">
+
+            <p>
+
+              P-X is a hand-built shelf of 50 films we return to, argue
+
+              about, and press into the hands of friends. There is no endless
+
+              queue here. Just enough context to trust your next choice.
+
+            </p>
+
+            <div class="journal-lines">
+
+              <div><span>Films in the Top 50</span><strong>50 / 50</strong></div>
+
+              <div><span>Genres in rotation</span><strong>12 moods</strong></div>
+
+              <div><span>Tracking</span><strong>Only on this device</strong></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+
+
+    <footer class="footer shell">
+
+      <span>P-X film companion</span>
+
+      <span>Made for the night you have in mind</span>
+
+      <span>Local by design</span>
+
+    </footer>
+
+
+
+
+
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+
+      <article class="movie-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close movie details">×</button>
+
+        <div class="modal-poster poster" id="modalPoster"></div>
+
+        <div class="modal-copy">
+
+          <p class="modal-meta" id="modalMeta"></p>
+
+          <h2 id="modalTitle"></h2>
+
+          <p class="modal-meta" id="modalDirector"></p>
+
+          <p id="modalLogline"></p>
+
+          <p class="modal-note" id="modalNote"></p>
+         <div class="modal-rating-section">
+  <span class="rating-label">Your Rating:</span>
+  <div class="star-rating" id="modalStarRating">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+</div>
+          <div class="modal-actions">
+
+            <button class="button button-primary" id="modalSave" type="button"></button>
+
+            <button class="button button-secondary" id="modalDone" type="button">Back to the top 50</button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+
+
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+
+      <span class="toast-mark">↝</span>
+
+      <div>
+
+        <strong id="toastTitle"></strong>
+
+        <span id="toastMessage">Your current catalog had a thought.</span>
+
+      </div>
+
+      <button id="toastClose" type="button" aria-label="Dismiss recommendation">×</button>
+
+    </div>
+
+ <section id ="about-us" class="about-section shell" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle">About Us</h2>
+        <div class="about-content">
+    
+          <p>Welcome to P-X, your offline movie recommendation companion. We curate a selection of 50 films that we believe are worth your time. Our goal is to provide thoughtful recommendations without the noise of endless feeds or algorithms.</p>
+          <p>We believe that good films leave a lasting impression and can shape your evening in meaningful ways. Our team carefully selects each film based on its artistic merit, storytelling, and emotional impact.</p>
+          <p>Thank you for trusting us to guide you through the world of cinema. Enjoy your night with one of our considered choices!</p>
+        </div>  
+      </section>
+    
+
+<div class="modal-backdrop" id="historyModalBackdrop" hidden>
+  <article class="movie-modal" role="dialog" aria-modal="true" style="grid-template-columns: 1fr;">
+    <button class="modal-close" id="historyClose" type="button" aria-label="Close history">×</button>
+    <div class="modal-copy" style="padding-right: 0;">
+      <h2 style="font-size: 28px;">Rating History</h2>
+      <div id="historyList" style="margin-top: 20px; display: grid; gap: 15px; max-height: 50vh; overflow-y: auto;">
+        
+      </div>
+    </div>
+  </article>
+</div>
+
+
+    <script src="app.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
